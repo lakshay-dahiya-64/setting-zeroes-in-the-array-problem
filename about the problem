@@ -1,0 +1,10 @@
+this problem is about finding zero in the array and making its row and coloumn as zero
+
+1 1 1
+1 0 1
+1 1 1
+
+output
+ 1 0 1
+ 0 0 0
+ 1 0 1
