@@ -1,0 +1,80 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+void marking1(int i,int &row,int &col,vector<vector<int>> &matrix){
+ for(int j=0;j<col;j++){
+
+	//for keeping the row(i) same varrying the col(j) and setting it 0
+
+ matrix[i][j]=-1;
+ }
+}
+void marking2(int j,int &row,int &col,vector<vector<int>> &matrix){
+for(int i=0;i<col;i++){
+
+	//for keeping the col(j) same varrying the row(i) and setting it 0
+
+ matrix[i][j]=-1;
+ }
+}
+void setzeroes(int n)
+{
+	while(n!=0){
+		int k,row,col;
+	vector<vector<int>> matrix;
+	
+	cin>>row>>col;
+	vector<int> input;
+
+	//storing the array
+	
+	for(int i=0;i<row;i++){
+		for(int j=0;j<col;j++){
+			cin>>k;
+			input.push_back(k);
+
+		}
+		matrix.push_back(input);
+		input.clear();
+	}
+	vector<int> storage;
+	for(int i=0;i<row;i++){
+          for (int j = 0; j < col; j++) {
+            if (matrix[i][j]==0){
+
+				//storing the i and j for which element in matrix is 0
+
+            marking1(i,row,col,matrix);
+			marking2(j,row,col,matrix);
+			}
+          }
+        }
+        
+      		n--;
+			for(int i=0;i<row;i++){
+				for(int j=0;j<col;j++){
+					if(matrix[i][j]==-1){
+						matrix[i][j]=0;
+					}
+				}
+			}
+
+			//printing the matrix
+cout<<endl<<"printing the matrix"<<endl;
+			for(int i=0;i<row;i++){
+		for(int j=0;j<col;j++){
+			cout<<matrix[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+        }
+}
+int main(){
+	//taking input to determine how many test cases to run
+	int n;
+	cin>>n;
+	
+	setzeroes(n);
+	
+	return 0;
+}
